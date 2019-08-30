@@ -24,12 +24,12 @@
         make.center.equalTo(self.view);
         make.width.height.equalTo(@100);
     }];
-    [self setImage];
+    [self loadImage];
 }
 
 
-- (void)setImage{
-    
+- (void)loadImage{
+    //加载图片方式
     [self.testImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",@"https://camo.githubusercontent.com/1560be050811ab73457e90aee62cd1cd257c7fb9/68747470733a2f2f7261772e6769746875622e636f6d2f41464e6574776f726b696e672f41464e6574776f726b696e672f6173736574732f61666e6574776f726b696e672d6c6f676f2e706e67"]] placeholderImage:[UIImage imageNamed:@"defaultImage"] options:SDWebImageHighPriority context:@{} progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         NSLog(@"进度");
     } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
@@ -45,6 +45,7 @@
      progress:(nullable SDImageLoaderProgressBlock)progressBlock
      completed:(nullable SDExternalCompletionBlock)completedBlock;
      
+     采用组合方式，组合了以下几种
 
      - (void)sd_setImageWithURL:(nullable NSURL *)url NS_REFINED_FOR_SWIFT;
 
